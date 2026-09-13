@@ -12,6 +12,7 @@
     <OutputPath>.</OutputPath>
     <Name>python-date-wrapper</Name>
     <RootNamespace>DateClassProject</RootNamespace>
+    <TestFramework>Pytest</TestFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
