@@ -79,4 +79,11 @@ class FalseStaticLeapYearTest(unittest.TestCase):
         false_static_leap = Date.is_false_year_leap(2023)
         self.assertEqual(false_static_leap,False)
 
+
+
+class LastDayTest(unittest.TestCase):
+    def test_lastday(self):
+        last_day_test = Date(2,2,2024)
+        self.assertEqual(last_day_test.last_day(),29)
+
 # python -m unittest, this is the command to run all unittests. (Use in terminal command line)
