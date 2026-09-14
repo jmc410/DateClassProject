@@ -58,8 +58,7 @@ class ReplacedDateInvalid(unittest.TestCase):
 class ValidLeapYearTest(unittest.TestCase):
     def test_leapyearmethod(self):
         leap_year = Date(12,12,2024)
-        is_leap_year(leap_year.year)
-        self.assertEqual(leap_year.year,True)
+        self.assertEqual(leap_year.is_leap_year(),True)
 
 
 
