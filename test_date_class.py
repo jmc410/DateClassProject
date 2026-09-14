@@ -68,8 +68,15 @@ class FalseLeapYearTest(unittest.TestCase):
 
 
 
+class StaticLeapYearTest(unittest.TestCase):
+    def test_staticleapyear(self):
+        static_leap = Date.is_year_leap(2024)
+        self.assertEqual(static_leap,True)
 
 
-
+class FalseStaticLeapYearTest(unittest.TestCase):
+    def test_falsestaticleapyear(self):
+        false_static_leap = Date.is_false_year_leap(2023)
+        self.assertEqual(false_static_leap,False)
 
 # python -m unittest, this is the command to run all unittests. (Use in terminal command line)

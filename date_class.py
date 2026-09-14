@@ -32,3 +32,7 @@ class Date:
     @staticmethod
     def is_year_leap(year):
         return calendar.isleap(year)
+
+    @staticmethod
+    def is_false_year_leap(year):
+        return calendar.isleap(year)
