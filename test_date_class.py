@@ -34,5 +34,28 @@ class InvalidDateTest(unittest.TestCase):
             invalid_date = Date(2,30,1800)
 
 
+# Testing if default date can be replaced.
+
+class ReplacedDateValid(unittest.TestCase):
+    def test_replaced(self):
+        replaced_valid = Date()
+        replaced_valid.set_date(7,27,2006)
+        self.assertEqual(replaced_valid.month,7)
+        self.assertEqual(replaced_valid.day,27)
+        self.assertEqual(replaced_valid.year,2006)
+
+class ReplacedDateInvalid(unittest.TestCase):
+    def test_invalidreplaced(self):
+        with self.assertRaises(ValueError):
+            replaced_invalid = Date()
+            replaced_invalid.set_date(2,31,1800)
+
+        self.assertEqual(replaced_invalid.month,1)
+        self.assertEqual(replaced_invalid.day,1)
+        self.assertEqual(replaced_invalid.year,1900)
+
+        
+
+
 
 # python -m unittest, this is the command to run all unittests. (Use in terminal command line)
