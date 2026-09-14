@@ -21,3 +21,14 @@ class Date:
         new_date = date(year, month, day)
         self.__date = new_date
 
+
+    def true_is_leap_year(self):
+        return calendar.isleap(self.__date.year)
+
+    def false_is_leap_year(self):
+        return calendar.isleap(self.__date.year)
+
+
+    @staticmethod
+    def is_year_leap(year):
+        return calendar.isleap(year)
