@@ -40,3 +40,15 @@ class Date:
 
     def last_day(self):
         return calendar.monthrange(self.__date.year,self.__date.month)[1]
+
+
+    def last_day_nonleap(self):
+        return calendar.monthrange(self.__date.year,self.__date.month)[1]
+
+    @staticmethod
+    def last_day_of_month(month,year):
+        return calendar.monthrange(year,month)[1]
+
+
+    def to_numeric_string(self):
+        return self.__date.strftime(%m/%d/%Y)

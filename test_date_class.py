@@ -86,4 +86,15 @@ class LastDayTest(unittest.TestCase):
         last_day_test = Date(2,2,2024)
         self.assertEqual(last_day_test.last_day(),29)
 
+class LastDayTest(unittest.TestCase):
+    def test_lastday(self):
+        last_day_test_nonleap = Date(2,2,2023)
+        self.assertEqual(last_day_test_nonleap.last_day_nonleap(),28)
+
+class StaticLastDay(unittest.TestCase):
+    def test_staticlastday(self):
+        static_lastday = Date.last_day_of_month(2,2024)
+        self.assertEqual(static_lastday,29)
+
+
 # python -m unittest, this is the command to run all unittests. (Use in terminal command line)
