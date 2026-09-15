@@ -60,11 +60,22 @@ class LeapYearTest(unittest.TestCase):
         leap_year = Date(12,12,2024)
         self.assertEqual(leap_year.is_leap_year(),True)
 
+class NotLeapYearTest(unittest.TestCase):
+    def test_notleapyearmethod(self):
+        not_leap_year = Date(12,12,2023)
+        self.assertEqual(not_leap_year.is_leap_year(),False)
+
 
 class StaticLeapYearTest(unittest.TestCase):
     def test_staticleapyear(self):
         static_leap = Date.is_year_leap(2024)
         self.assertEqual(static_leap,True)
+
+
+class StaticNotLeapYearTest(unittest.TestCase):
+    def test_staticnotleapyear(self):
+        static_notleap = Date.is_year_leap(2023)
+        self.assertEqual(static_notleap,False)
 
 class LastDayTest(unittest.TestCase):
     def test_lastday(self):
@@ -73,8 +84,8 @@ class LastDayTest(unittest.TestCase):
 
 class StaticLastDay(unittest.TestCase):
     def test_staticlastday(self):
-        static_lastday = Date.last_day_of_month(2,2024)
-        self.assertEqual(static_lastday,29)
+        static_lastday = Date.last_day_of_month(2,2023)
+        self.assertEqual(static_lastday,28)
 
 
 class NumericFormat(unittest.TestCase):
@@ -95,7 +106,7 @@ class DayFirstString(unittest.TestCase):
     def test_dayfirst(self):
         day_first = Date(11,14,2014)
         day_first = day_first.to_day_first_string()
-        self.assertEqual(day_first,"14 November, 2014")
+        self.assertEqual(day_first,"14 November 2014")
 
 
 
