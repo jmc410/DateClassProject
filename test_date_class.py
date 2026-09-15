@@ -97,4 +97,14 @@ class StaticLastDay(unittest.TestCase):
         self.assertEqual(static_lastday,29)
 
 
+class NumericFormat(unittest.TestCase):
+    def test_numformat(self):
+        numeric_format = Date(7,27,2006)
+        numeric_format = numeric_format.to_numeric_string()
+        self.assertEqual(numeric_format,"07/27/2006")
+
+
+class MonthFirstString
+
+
 # python -m unittest, this is the command to run all unittests. (Use in terminal command line)
