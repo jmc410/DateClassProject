@@ -55,17 +55,10 @@ class ReplacedDateInvalid(unittest.TestCase):
         self.assertEqual(replaced_invalid.year,1900)
 
 
-class TrueLeapYearTest(unittest.TestCase):
-    def test_trueleapyearmethod(self):
-        true_leap_year = Date(12,12,2024)
-        self.assertEqual(true_leap_year.true_is_leap_year(),True)
-
-
-class FalseLeapYearTest(unittest.TestCase):
-    def test_falseleapyearmethod(self):
-        false_leap_year = Date(12,12,2023)
-        self.assertEqual(false_leap_year.false_is_leap_year(),False)
-
+class LeapYearTest(unittest.TestCase):
+    def test_leapyearmethod(self):
+        leap_year = Date(12,12,2024)
+        self.assertEqual(leap_year.is_leap_year(),True)
 
 
 class StaticLeapYearTest(unittest.TestCase):
@@ -73,23 +66,10 @@ class StaticLeapYearTest(unittest.TestCase):
         static_leap = Date.is_year_leap(2024)
         self.assertEqual(static_leap,True)
 
-
-class FalseStaticLeapYearTest(unittest.TestCase):
-    def test_falsestaticleapyear(self):
-        false_static_leap = Date.is_false_year_leap(2023)
-        self.assertEqual(false_static_leap,False)
-
-
-
 class LastDayTest(unittest.TestCase):
     def test_lastday(self):
         last_day_test = Date(2,2,2024)
         self.assertEqual(last_day_test.last_day(),29)
-
-class LastDayTest(unittest.TestCase):
-    def test_lastday(self):
-        last_day_test_nonleap = Date(2,2,2023)
-        self.assertEqual(last_day_test_nonleap.last_day_nonleap(),28)
 
 class StaticLastDay(unittest.TestCase):
     def test_staticlastday(self):
@@ -104,7 +84,19 @@ class NumericFormat(unittest.TestCase):
         self.assertEqual(numeric_format,"07/27/2006")
 
 
-class MonthFirstString
+class MonthFirstString(unittest.TestCase):
+    def test_monthfirst(self):
+        month_first = Date(11,14,2014)
+        month_first = month_first.to_month_first_string()
+        self.assertEqual(month_first,"November 14, 2014")
+
+
+class DayFirstString(unittest.TestCase):
+    def test_dayfirst(self):
+        day_first = Date(11,14,2014)
+        day_first = day_first.to_day_first_string()
+        self.assertEqual(day_first,"14 November, 2014")
+
 
 
 # python -m unittest, this is the command to run all unittests. (Use in terminal command line)
