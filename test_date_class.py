@@ -28,11 +28,26 @@ class ValidDateTest(unittest.TestCase):
         self.assertEqual(valid_date.day, 25)
         self.assertEqual(valid_date.year, 2026)
 
-class InvalidDateTest(unittest.TestCase):
+class InvalidDateTestYear(unittest.TestCase):
     def test_invalid(self):
         with self.assertRaises(ValueError):
-            invalid_date = Date(2,30,1800)
+            invalid_date_year = Date(2,25,0)
 
+class InvalidDateTestMonth(unittest.TestCase):
+    def test_invalid(self):
+        with self.assertRaises(ValueError):
+            invalid_date_month = Date(13,1,2000)
+
+class InvalidDateTestDay(unittest.TestCase):
+    def test_invalid(self):
+        with self.assertRaises(ValueError):
+            invalid_date_day = Date(2,30,1800)
+
+
+class InvalidLeapDay(unittest.TestCase):
+    def test_invalid_leap_day(self):
+        with self.assertRaises(ValueError):
+            invalid_leap_day = Date(2,29,2023)
 
 # Testing if default date can be replaced.
 
@@ -90,23 +105,23 @@ class StaticLastDay(unittest.TestCase):
 
 class NumericFormat(unittest.TestCase):
     def test_numformat(self):
-        numeric_format = Date(7,27,2006)
+        numeric_format = Date(12,25,2021)
         numeric_format = numeric_format.to_numeric_string()
-        self.assertEqual(numeric_format,"07/27/2006")
+        self.assertEqual(numeric_format,"12/25/2021")
 
 
 class MonthFirstString(unittest.TestCase):
     def test_monthfirst(self):
-        month_first = Date(11,14,2014)
+        month_first = Date(12,25,2021)
         month_first = month_first.to_month_first_string()
-        self.assertEqual(month_first,"November 14, 2014")
+        self.assertEqual(month_first,"December 25, 2021")
 
 
 class DayFirstString(unittest.TestCase):
     def test_dayfirst(self):
-        day_first = Date(11,14,2014)
+        day_first = Date(12,25,2021)
         day_first = day_first.to_day_first_string()
-        self.assertEqual(day_first,"14 November 2014")
+        self.assertEqual(day_first,"25 December 2021")
 
 
 
