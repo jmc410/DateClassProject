@@ -131,7 +131,10 @@ class Subtraction(unittest.TestCase):
         difference = day1 - day2
         self.assertEqual(difference,8)
 
-class negativeSubtraction(unittest.TestCase):
-    def test_negativesubtraction
-
+class NegativeSubtraction(unittest.TestCase):
+    def test_negativesubtraction(self):
+        nday1 = Date(11,10,2003)
+        nday2 = Date(2,2,2006)
+        ndifference = nday1 - nday2
+        self.assertEqual(ndifference,-815)
 # python -m unittest, this is the command to run all unittests. (Use in terminal command line)
