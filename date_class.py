@@ -1,6 +1,5 @@
-from datetime import date
+from datetime import date, timedelta
 import calendar
-
 # Creation of Date class changing Python-accepted m/d/y order to user-expected order.
 
 class Date:
@@ -62,3 +61,12 @@ class Date:
     def to_day_first_string(self):
         """Returns date in Day Month Year format."""
         return self.__date.strftime("%d %B %Y")
+
+
+
+    def __sub__(self, other: object) -> int:
+           if not isinstance(other, Date):
+                return NotImplemented
+
+           return (self.__date - other.__date).days
+    

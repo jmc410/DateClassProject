@@ -124,5 +124,14 @@ class DayFirstString(unittest.TestCase):
         self.assertEqual(day_first,"25 December 2021")
 
 
+class Subtraction(unittest.TestCase):
+    def test_subtraction(self):
+        day1 = Date(4,18,2024)
+        day2 = Date(4,10,2024)
+        difference = day1 - day2
+        self.assertEqual(difference,8)
+
+class negativeSubtraction(unittest.TestCase):
+    def test_negativesubtraction
 
 # python -m unittest, this is the command to run all unittests. (Use in terminal command line)
