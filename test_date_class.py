@@ -239,5 +239,55 @@ class DeincrementTest(unittest.TestCase):
 
 
 
+class DeincrementTest2(unittest.TestCase):
+    def test_deincrement(self):
+        test1 = Date(5,1,2000)
+
+        returned_date = test1.deincrement()
+
+        self.assertEqual(test1.day, 30)
+        self.assertEqual(test1.month, 4)
+        self.assertEqual(test1.year, 2000)
+
+        self.assertIs(returned_date,test1)
+
+class DeincrementTest3(unittest.TestCase):
+    def test_deincrement(self):
+        test1 = Date(3,1,2003)
+
+        returned_date = test1.deincrement()
+
+        self.assertEqual(test1.day, 28)
+        self.assertEqual(test1.month, 2)
+        self.assertEqual(test1.year, 2003)
+
+        self.assertIs(returned_date,test1)
+
+class DeincrementTest4(unittest.TestCase):
+    def test_deincrement(self):
+        test1 = Date(3,1,2004)
+
+        returned_date = test1.deincrement()
+
+        self.assertEqual(test1.day, 29)
+        self.assertEqual(test1.month, 2)
+        self.assertEqual(test1.year, 2004)
+
+        self.assertIs(returned_date,test1)
+
+
+class DeincrementTest5(unittest.TestCase):
+    def test_deincrement(self):
+        test1 = Date(1,1,2003)
+
+        returned_date = test1.deincrement()
+
+        self.assertEqual(test1.day, 31)
+        self.assertEqual(test1.month, 12)
+        self.assertEqual(test1.year, 2002)
+
+        self.assertIs(returned_date,test1)
+
+
 
 # python -m unittest, this is the command to run all unittests. (Use in terminal command line)
