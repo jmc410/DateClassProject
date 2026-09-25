@@ -194,6 +194,13 @@ class EqualSubtraction(unittest.TestCase):
         edifference = eday1 - eday2
         self.assertEqual(edifference,0)
 
+class UnsupportedSubtraction(unittest.TestCase):
+    def test_unsupported_subtraction(self):
+        test_date = Date(4, 18, 2014)
+
+        with self.assertRaises(TypeError):
+            test_date - "not a date"
+
 
 
 # Starting increment testing.
