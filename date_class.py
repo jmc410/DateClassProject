@@ -75,3 +75,8 @@ class Date:
         self.__date = self.__date + timedelta(days=1)
         return self
 
+
+
+    def deincrement(self) -> "Date":
+        self.__date = self.__date - timedelta(days=1)
+        return self

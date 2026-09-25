@@ -155,7 +155,7 @@ class NegativeSubtraction(unittest.TestCase):
 # Starting increment testing.
 
 
-class IncrementTest(unittest.TestCase):
+class IncrementTest1(unittest.TestCase):
     def test_increment(self):
         test1 = Date(4,30,2000)
 
@@ -166,6 +166,78 @@ class IncrementTest(unittest.TestCase):
         self.assertEqual(test1.year, 2000)
 
         self.assertIs(returned_date,test1)
+
+
+class IncrementTest2(unittest.TestCase):
+    def test_increment(self):
+        test1 = Date(1,31,2000)
+
+        returned_date = test1.increment()
+
+        self.assertEqual(test1.day, 1)
+        self.assertEqual(test1.month, 2)
+        self.assertEqual(test1.year, 2000)
+
+        self.assertIs(returned_date,test1)
+
+
+class IncrementTest3(unittest.TestCase):
+    def test_increment(self):
+        test1 = Date(2,28,2003)
+
+        returned_date = test1.increment()
+
+        self.assertEqual(test1.day, 1)
+        self.assertEqual(test1.month, 3)
+        self.assertEqual(test1.year, 2003)
+
+        self.assertIs(returned_date,test1)
+
+
+class IncrementTest4(unittest.TestCase):
+    def test_increment(self):
+        test1 = Date(2,28,2004)
+
+        returned_date = test1.increment()
+
+        self.assertEqual(test1.day, 29)
+        self.assertEqual(test1.month, 2)
+        self.assertEqual(test1.year, 2004)
+
+        self.assertIs(returned_date,test1)
+
+
+
+class IncrementTest5(unittest.TestCase):
+    def test_increment(self):
+        test1 = Date(12,31,2003)
+
+        returned_date = test1.increment()
+
+        self.assertEqual(test1.day, 1)
+        self.assertEqual(test1.month, 1)
+        self.assertEqual(test1.year, 2004)
+
+        self.assertIs(returned_date,test1)
+
+
+
+
+
+
+class DeincrementTest(unittest.TestCase):
+    def test_deincrement(self):
+        test1 = Date(4,30,2000)
+
+        returned_date = test1.deincrement()
+
+        self.assertEqual(test1.day, 29)
+        self.assertEqual(test1.month, 4)
+        self.assertEqual(test1.year, 2000)
+
+        self.assertIs(returned_date,test1)
+
+
 
 
 # python -m unittest, this is the command to run all unittests. (Use in terminal command line)
