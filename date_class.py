@@ -65,6 +65,7 @@ class Date:
 
 
     def __sub__(self, other: object) -> int:
+           """Method for subtraction testing"""
            if not isinstance(other, Date):
                 return NotImplemented
 
@@ -72,12 +73,14 @@ class Date:
     
 
     def increment(self) -> "Date":
+        """Increment by 1"""
         self.__date = self.__date + timedelta(days=1)
         return self
 
 
 
     def decrement(self) -> "Date":
+        """Decrement by 1"""
         self.__date = self.__date - timedelta(days=1)
         return self
 
