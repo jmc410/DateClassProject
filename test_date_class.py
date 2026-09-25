@@ -187,6 +187,14 @@ class NegativeSubtraction(unittest.TestCase):
         self.assertEqual(ndifference,-815)
 
 
+class EqualSubtraction(unittest.TestCase):
+    def test_negativesubtraction(self):
+        eday1 = Date(11,10,2003)
+        eday2 = Date(11,10,2003)
+        edifference = eday1 - eday2
+        self.assertEqual(edifference,0)
+
+
 
 # Starting increment testing.
 
