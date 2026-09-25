@@ -199,7 +199,7 @@ class UnsupportedSubtraction(unittest.TestCase):
         test_date = Date(4, 18, 2014)
 
         with self.assertRaises(TypeError):
-            test_date - "Invalid Date."
+            test_date - "Invalid Test."
 
 
 
