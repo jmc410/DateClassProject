@@ -131,10 +131,41 @@ class Subtraction(unittest.TestCase):
         difference = day1 - day2
         self.assertEqual(difference,8)
 
+
+# Other subtraction test
+
+class Subtraction(unittest.TestCase):
+    def test_subtraction(self):
+        day1 = Date(2,2,2006)
+        day2 = Date(11,10,2003)
+        difference = day1 - day2
+        self.assertEqual(difference,815)
+
+
+
 class NegativeSubtraction(unittest.TestCase):
     def test_negativesubtraction(self):
         nday1 = Date(11,10,2003)
         nday2 = Date(2,2,2006)
         ndifference = nday1 - nday2
         self.assertEqual(ndifference,-815)
+
+
+
+# Starting increment testing.
+
+
+class IncrementTest(unittest.TestCase):
+    def test_increment(self):
+        test1 = Date(4,30,2000)
+
+        returned_date = test1.increment()
+
+        self.assertEqual(test1.day, 1)
+        self.assertEqual(test1.month, 5)
+        self.assertEqual(test1.year, 2000)
+
+        self.assertIs(returned_date,test1)
+
+
 # python -m unittest, this is the command to run all unittests. (Use in terminal command line)
