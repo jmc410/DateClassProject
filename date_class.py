@@ -77,6 +77,21 @@ class Date:
 
 
 
-    def deincrement(self) -> "Date":
+    def decrement(self) -> "Date":
         self.__date = self.__date - timedelta(days=1)
         return self
+
+
+    def __str__(self):
+        """Returns date in Month Day, Year format."""
+        return f"{self.__date.strftime('%B')} {self.__date.day}, {self.__date.year}"
+
+
+    @classmethod
+    def from_input(cls) -> "Date":
+        """Create a date from user-entered information"""
+        month = int(input("Enter month: "))
+        day = int(input("Enter day: "))
+        year = int(input("Enter year: "))
+
+        return cls(month, day, year)

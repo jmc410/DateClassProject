@@ -1,6 +1,42 @@
 import unittest
 from date_class import Date
+from unittest.mock import patch
 
+
+
+
+
+class UserInput(unittest.TestCase):
+    @patch("builtins.input", side_effect=["4", "18", "2018"])
+    def test_from_input_creates_date(self, mock_input):
+
+        result = Date.from_input()
+
+        self.assertEqual(result.month, 4)
+        self.assertEqual(result.day, 18)
+        self.assertEqual(result.year, 2018)
+
+
+    @patch("builtins.input", side_effect=["13", "18", "2018"])
+    def test_from_input_creates_date(self, mock_input):
+        with self.assertRaises(ValueError):
+            Date.from_input()
+
+    @patch("builtins.input", side_effect=["4", "35", "2018"])
+    def test_from_input_creates_date(self, mock_input):
+        with self.assertRaises(ValueError):
+            Date.from_input()
+
+    @patch("builtins.input", side_effect=["2", "29", "2003"])
+    def test_from_input_creates_date(self, mock_input):
+        with self.assertRaises(ValueError):
+            Date.from_input()
+
+
+    @patch("builtins.input", side_effect=["a", "b", "c"])
+    def test_from_input_creates_date(self, mock_input):
+        with self.assertRaises(ValueError):
+            Date.from_input()
 
 
 class DayTest(unittest.TestCase):
@@ -229,7 +265,7 @@ class DeincrementTest(unittest.TestCase):
     def test_deincrement(self):
         test1 = Date(4,30,2000)
 
-        returned_date = test1.deincrement()
+        returned_date = test1.decrement()
 
         self.assertEqual(test1.day, 29)
         self.assertEqual(test1.month, 4)
@@ -243,7 +279,7 @@ class DeincrementTest2(unittest.TestCase):
     def test_deincrement(self):
         test1 = Date(5,1,2000)
 
-        returned_date = test1.deincrement()
+        returned_date = test1.decrement()
 
         self.assertEqual(test1.day, 30)
         self.assertEqual(test1.month, 4)
@@ -255,7 +291,7 @@ class DeincrementTest3(unittest.TestCase):
     def test_deincrement(self):
         test1 = Date(3,1,2003)
 
-        returned_date = test1.deincrement()
+        returned_date = test1.decrement()
 
         self.assertEqual(test1.day, 28)
         self.assertEqual(test1.month, 2)
@@ -267,7 +303,7 @@ class DeincrementTest4(unittest.TestCase):
     def test_deincrement(self):
         test1 = Date(3,1,2004)
 
-        returned_date = test1.deincrement()
+        returned_date = test1.decrement()
 
         self.assertEqual(test1.day, 29)
         self.assertEqual(test1.month, 2)
@@ -280,7 +316,7 @@ class DeincrementTest5(unittest.TestCase):
     def test_deincrement(self):
         test1 = Date(1,1,2003)
 
-        returned_date = test1.deincrement()
+        returned_date = test1.decrement()
 
         self.assertEqual(test1.day, 31)
         self.assertEqual(test1.month, 12)
@@ -288,6 +324,36 @@ class DeincrementTest5(unittest.TestCase):
 
         self.assertIs(returned_date,test1)
 
+
+
+class StringTest(unittest.TestCase):
+    def test_stringtest(self):
+        strtest = str(Date(4,18,2018))
+        self.assertEqual(strtest,"April 18, 2018")
+
+class StringTest2(unittest.TestCase):
+    def test_stringtest(self):
+        strtest = str(Date(4,8,2018))
+        self.assertEqual(strtest,"April 8, 2018")
+
+
+class StringTest3(unittest.TestCase):
+    def test_stringtest(self):
+        strtest = str(Date(2,29,2004))
+        self.assertEqual(strtest,"February 29, 2004")
+        
+
+
+class StringTestBoundary1(unittest.TestCase):
+    def test_stringtest(self):
+        strtest = str(Date(12,31,2004))
+        self.assertEqual(strtest,"December 31, 2004")
+
+
+class StringTestBoundary2(unittest.TestCase):
+    def test_stringtest(self):
+        strtest = str(Date(1,1,2005))
+        self.assertEqual(strtest,"January 1, 2005")
 
 
 # python -m unittest, this is the command to run all unittests. (Use in terminal command line)
